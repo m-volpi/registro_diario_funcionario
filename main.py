@@ -24,8 +24,14 @@ DESTINO_CONFIG = {
     "port": os.getenv("DESTINO_PORT")
 }
 
+# Garante que o caminho do SQL é relativo ao arquivo deste script
+query_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'query.sql')
+if not os.path.exists(query_path):
+    print(f"Arquivo SQL não encontrado em: {query_path}")
+    print(f"CWD atual: {os.getcwd()}")
+    sys.exit(1)
 
-with open('query.sql', 'r', encoding='utf-8') as f:
+with open(query_path, 'r', encoding='utf-8') as f:
     ORIGINAL_QUERY = f.read()
 
 TABELA_DESTINO = os.getenv("DESTINO_TABLE_NAME")
