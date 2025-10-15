@@ -28,7 +28,7 @@ DESTINO_CONFIG = {
 with open('query.sql', 'r', encoding='utf-8') as f:
     ORIGINAL_QUERY = f.read()
 
-TABELA_DESTINO = "cdf_funloc_2"
+TABELA_DESTINO = os.getenv("DESTINO_TABLE_NAME")
 
 def executar_migracao():
     try:

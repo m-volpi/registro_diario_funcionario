@@ -3,11 +3,11 @@ SELECT
   F_DIC_PES_NOME(fl.cd_funcionario) AS nm_funcionario
 FROM (
   SELECT DISTINCT cd_funcionario
-  FROM public.vr_cdf_funloc
+  FROM schema.nome_tabela_origem
 ) funcs
 CROSS JOIN LATERAL (
   SELECT *
-  FROM public.vr_cdf_funloc fl2
+  FROM schema.nome_tabela_origem fl2
   WHERE fl2.cd_funcionario = funcs.cd_funcionario
   ORDER BY fl2.dt_cadastro DESC
   LIMIT 1
