@@ -4,21 +4,24 @@ from datetime import datetime
 import os
 import logging
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ORIGEM_CONFIG = {
-    "host": "dbexp.vcenter.com.br",
-    "dbname": "liebe",
-    "user": "liebe_ro",
-    "password": "%eTS$33qPO8XZNMc",
-    "port": "20168"
+    "host": os.getenv("ORIGEM_HOST"),
+    "dbname": os.getenv("ORIGEM_DBNAME"),
+    "user": os.getenv("ORIGEM_USER"),
+    "password": os.getenv("ORIGEM_PASSWORD"),
+    "port": os.getenv("ORIGEM_PORT")
 }
 
 DESTINO_CONFIG = {
-    "host": "ep-rough-wave-13168438.us-east-2.aws.neon.tech",
-    "dbname": "liebeti",
-    "user": "erick.rodrigues",
-    "password": "Hq2iNW4eCLjc",
-    "port": "5432"
+    "host": os.getenv("DESTINO_HOST"),
+    "dbname": os.getenv("DESTINO_DBNAME"),
+    "user": os.getenv("DESTINO_USER"),
+    "password": os.getenv("DESTINO_PASSWORD"),
+    "port": os.getenv("DESTINO_PORT")
 }
 
 
